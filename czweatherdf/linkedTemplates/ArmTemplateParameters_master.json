@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "czweatherdf"
+		},
+		"WeatherForcastSQLDatabase_password": {
+			"value": ""
+		},
+		"WeatherStorageAccount_connectionString": {
+			"value": ""
+		},
+		"OpenMEteoAPI_properties_typeProperties_url": {
+			"value": "https://api.open-meteo.com/"
+		},
+		"OpenMeteo_properties_typeProperties_url": {
+			"value": "https://api.open-meteo.com/"
+		},
+		"WeatherForcastSQLDatabase_properties_typeProperties_server": {
+			"value": "czweather.database.windows.net"
+		},
+		"WeatherForcastSQLDatabase_properties_typeProperties_database": {
+			"value": "weatherfc"
+		},
+		"WeatherForcastSQLDatabase_properties_typeProperties_userName": {
+			"value": "dsti_admin"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
