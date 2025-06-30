@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GetCities",
+				"name": "GetCityList",
 				"description": "Get the cities informations",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -27,6 +27,52 @@
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEachCity",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "GetCityList",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('GetCityList').output.value",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "CallWeatherAPI",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "GET",
+								"relativeUrl": {
+									"value": "@concat('/v1/forecast?latitude=', string(item().latitude), '&longitude=', string(item().longitude), '&daily=temperature_2m_max&timezone=Europe%2FBerlin')\n",
+									"type": "Expression"
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "OpenMEteoAPI",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
 				}
 			}
 		],
