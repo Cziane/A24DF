@@ -62,14 +62,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"method": "GET",
-								"relativeUrl": {
-									"value": "@concat('https://api.open-meteo.com/v1/forecast?latitude=', string(item().latitude), '&longitude=', string(item().longitude), '&daily=temperature_2m_max&timezone=Europe%2FBerlin')",
-									"type": "Expression"
-								}
-							},
-							"linkedServiceName": {
-								"referenceName": "OpenMEteoAPI",
-								"type": "LinkedServiceReference"
+								"url": "@concat('https://api.open-meteo.com/v1/forecast?latitude=', string(item().latitude), '&longitude=', string(item().longitude), '&daily=temperature_2m_max&timezone=Europe%2FBerlin')"
 							}
 						},
 						{
