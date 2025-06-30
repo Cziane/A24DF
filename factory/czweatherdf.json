@@ -1,0 +1,9 @@
+{
+	"name": "czweatherdf",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "991bd3c6-ca7c-47cf-b15d-e8c3f2b4c9e0",
+		"tenantId": "e5d15069-41a2-48be-a3f3-d7f52db16425"
+	}
+}
