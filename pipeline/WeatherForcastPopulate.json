@@ -96,7 +96,7 @@
 								"storedProcedureParameters": {
 									"city_id": {
 										"value": {
-											"value": "@item().city_id",
+											"value": "@item().id",
 											"type": "Expression"
 										},
 										"type": "Int32"
