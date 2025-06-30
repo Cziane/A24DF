@@ -22,6 +22,10 @@
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
+					"dataset": {
+						"referenceName": "CityTable",
+						"type": "DatasetReference"
+					},
 					"firstRowOnly": false
 				}
 			},
@@ -58,7 +62,10 @@
 							"userProperties": [],
 							"typeProperties": {
 								"method": "GET",
-								"relativeUrl": "@concat('https://api.open-meteo.com/v1/forecast?latitude=', string(item().latitude), '&longitude=', string(item().longitude), '&daily=temperature_2m_max&timezone=Europe%2FBerlin')"
+								"relativeUrl": {
+									"value": "@concat('https://api.open-meteo.com/v1/forecast?latitude=', string(item().latitude), '&longitude=', string(item().longitude), '&daily=temperature_2m_max&timezone=Europe%2FBerlin')",
+									"type": "Expression"
+								}
 							},
 							"linkedServiceName": {
 								"referenceName": "OpenMEteoAPI",
@@ -95,7 +102,10 @@
 										"type": "Int32"
 									},
 									"forecast_dates": {
-										"value": "@join(activity('CallWeatherAPI').output.daily.time, ',')",
+										"value": {
+											"value": "@join(activity('CallWeatherAPI').output.daily.time, ',')",
+											"type": "Expression"
+										},
 										"type": "String"
 									},
 									"temperatures": {
