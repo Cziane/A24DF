@@ -1,10 +1,6 @@
 {
 	"name": "CityTable",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "WeatherForcastSQLDatabase",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
